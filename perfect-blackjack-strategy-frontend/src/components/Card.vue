@@ -1,17 +1,16 @@
 <template>
   <div :class="`card-wrapper absolute top-[-1000%] ${dealt ? 'dealt' : ''}`">
     <div
-      :class="`cursor-pointer card-body bg-white w-[150px] h-[200px] rounded-xl relative text-center select-none ${
+      :class="`card-body bg-white w-[150px] h-[200px] rounded-xl relative text-center select-none ${
         suit === 'heart' || suit === 'diamond' ? ' text-red-500' : ''
       }`"
-      @click="faceUp = !faceUp"
     >
       <template v-if="faceUp">
         <div class="card-id absolute top-[5px] left-[5px] grid grid-cols-1">
           <span class="card-number text-2xl">{{ cardNumber }}</span>
           <img
             :src="require(`../assets/${suit}.svg`)"
-            class="w-[25px] h-[25px] max-w-[25px] max-h-[25px] object-contain object-center"
+            class="w-[20px] h-[20px] max-w-[20px] max-h-[20px] object-contain object-center"
           />
         </div>
         <div
@@ -38,7 +37,7 @@
           <span class="card-number text-2xl">{{ cardNumber }}</span>
           <img
             :src="require(`../assets/${suit}.svg`)"
-            class="w-[25px] h-[25px] max-w-[25px] max-h-[25px] object-contain object-center"
+            class="w-[20px] h-[20px] max-w-[20px] max-h-[20px] object-contain object-center"
           />
         </div>
       </template>
