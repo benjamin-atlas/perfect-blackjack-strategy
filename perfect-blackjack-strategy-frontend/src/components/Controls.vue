@@ -22,7 +22,7 @@
     </div>
     <div
       class="control-option cursor-pointer select-none mr-0"
-      @click="this.$emit('control-selected', 'doubledown')"
+      @click="this.$emit('control-selected', 'double down')"
     >
       Double Down
     </div>
