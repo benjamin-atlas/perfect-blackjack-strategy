@@ -75,10 +75,10 @@ export default defineComponent({
 
       setTimeout(() => {
         this.playerHand.push(this.getRandomCard());
-      }, 1200);
+      }, 900);
       setTimeout(() => {
         this.playerHand.push(this.getRandomCard());
-      }, 1350);
+      }, 1050);
     },
 
     clearCards() {
