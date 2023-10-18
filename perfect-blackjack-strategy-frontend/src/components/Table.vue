@@ -1,5 +1,5 @@
 <template>
-  <div v-if="correctMove">Correct move is to {{correctMove}}</div>
+  <!-- <div v-if="correctMove">Correct move is to {{correctMove}}</div> -->
   <div class="grid gap-16 playing-table">
     <div class="relative" v-for="(cardInfo, index) in dealerHand" :key="index">
       <Card
