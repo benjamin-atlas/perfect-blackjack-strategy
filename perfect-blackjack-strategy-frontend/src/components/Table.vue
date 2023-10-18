@@ -1,4 +1,5 @@
 <template>
+  <div v-if="correctMove">Correct move is to {{correctMove}}</div>
   <div class="grid gap-16 playing-table">
     <div class="relative" v-for="(cardInfo, index) in dealerHand" :key="index">
       <Card
@@ -22,6 +23,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Card from "./Card.vue";
+import perfectStrategy from "../assets/perfectStrategy"
 
 export default defineComponent({
   components: {
@@ -31,6 +33,7 @@ export default defineComponent({
     return {
       dealerHand: [] as any[],
       playerHand: [] as any[],
+      correctMove: null as string | null
     };
   },
   mounted() {
@@ -78,6 +81,7 @@ export default defineComponent({
       }, 900);
       setTimeout(() => {
         this.playerHand.push(this.getRandomCard());
+        this.computeCorrectMove();
       }, 1050);
     },
 
@@ -98,7 +102,26 @@ export default defineComponent({
 
     reset() {
       this.clearCards();
+      this.correctMove = null;
     },
+
+    computeCorrectMove() {
+      if (this.playerHand[0].cardNumber === this.playerHand[1].cardNumber) {
+        const correctStrategySet: any = perfectStrategy.splits;
+        const playerValueArray: string[] = correctStrategySet[this.playerHand[0].cardNumber];
+        this.correctMove = playerValueArray[this.dealerHand[0].cardNumber - 1];
+      } else if (this.playerHand[0].cardNumber === 11 || this.playerHand[1].cardNumber === 11) {
+        const correctStrategySet: any = perfectStrategy.aces;
+        const playerValueArray: string[] = correctStrategySet[
+          this.playerHand[0].cardNumber === 11 ? this.playerHand[1].cardNumber : this.playerHand[0].cardNumber // Use the one that isn't the ace
+        ];
+        this.correctMove = playerValueArray[this.dealerHand[0].cardNumber - 1];
+      } else {
+        const correctStrategySet: any = perfectStrategy.hard;
+        const playerValueArray: string[] = correctStrategySet[this.playerHand[0].cardNumber + this.playerHand[1].cardNumber];
+        this.correctMove = playerValueArray[this.dealerHand[0].cardNumber - 1];
+      }
+    }
   },
 });
 </script>
