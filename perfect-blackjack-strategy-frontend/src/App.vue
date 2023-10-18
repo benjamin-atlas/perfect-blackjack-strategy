@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-gradient-to-br from-pink-500 via-purple-500 to-purple-600 h-screen">
-    <Deck />
+  <div class="bg-gradient-to-br from-pink-500 via-purple-500 to-purple-600 w-screen h-screen overflow-hidden relative">
+    <Table />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Deck from './components/Deck.vue'
+import Table from './components/Table.vue'
 
 export default defineComponent({
   components: {
-    Deck
+    Table
   }
 });
 </script>
