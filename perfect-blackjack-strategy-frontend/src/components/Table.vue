@@ -82,6 +82,7 @@ export default defineComponent({
       setTimeout(() => {
         this.playerHand.push(this.getRandomCard());
         this.computeCorrectMove();
+        this.$emit('control-state-changed', true);
       }, 1050);
     },
 
@@ -101,6 +102,7 @@ export default defineComponent({
     },
 
     reset() {
+      this.$emit('control-state-changed', false);
       this.clearCards();
       this.correctMove = null;
     },

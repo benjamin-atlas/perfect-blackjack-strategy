@@ -1,8 +1,8 @@
 <template>
   <div class="bg-gradient-to-br from-pink-500 via-purple-500 to-purple-600 w-screen h-screen overflow-hidden relative font-ibm-plex-sans">
-    <Table ref="tableRef"/>
+    <Table ref="tableRef" @control-state-changed="(controlsEnabled) => this.controlsEnabled = controlsEnabled"/>
     <Scores ref="scoreRef" />
-    <Controls @control-selected="onControlSelected" />
+    <Controls @control-selected="onControlSelected" :enabled="controlsEnabled" />
   </div>
 </template>
 
@@ -17,6 +17,11 @@ export default defineComponent({
     Controls,
     Scores,
     Table
+  },
+  data() {
+    return {
+      controlsEnabled: false as boolean
+    }
   },
   methods: {
     onControlSelected() {
