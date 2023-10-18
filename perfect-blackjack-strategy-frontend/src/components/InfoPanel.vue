@@ -145,6 +145,7 @@ export default defineComponent({
 <style lang="scss">
 .info-panel {
   transition: top 250ms ease-in-out;
-  background-color: black;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 </style>

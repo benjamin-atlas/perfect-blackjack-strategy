@@ -8,7 +8,7 @@
       class="text-white text-2xl learn-more fixed bottom-5 left-5 cursor-pointer select-none"
       @click="this.showLearnMore = !this.showLearnMore"
     >
-      {{ this.showLearnMore ? 'Hide' : 'Learn more' }}
+      {{ this.showLearnMore ? "Hide" : "Learn more" }}
       <div class="text-sm inline">[space]</div>
     </div>
     <Table
@@ -68,6 +68,11 @@ export default defineComponent({
   },
   mounted() {
     document.title = "Perfect Blackjack Strategy";
+    document.addEventListener("keydown", (event) => {
+      if (event.key === " ") {
+        this.showLearnMore = !this.showLearnMore;
+      }
+    });
   },
 });
 </script>
