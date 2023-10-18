@@ -32,9 +32,9 @@ export default {
   },
   splits: {
     11: ['split','split','split','split','split','split','split','split','split','split'],
-    8: ['split','split','split','split','split','split','split','split','split','split'],
     10: ['stand','stand','stand','stand','stand','stand','stand','stand','stand','stand'],
     9: ['split','split','split','split','split','stand','split','split','stand','stand'],
+    8: ['split','split','split','split','split','split','split','split','split','split'],
     7: ['split','split','split','split','split','split','hit','hit','hit','hit'],
     6: ['split','split','split','split','split','hit','hit','hit','hit','hit'],
     5: ['double down','double down','double down','double down','double down','double down','double down','double down','hit','hit'],

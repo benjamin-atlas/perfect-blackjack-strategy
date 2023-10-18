@@ -2,6 +2,15 @@
   <div
     class="bg-gradient-to-br from-pink-500 via-purple-500 to-purple-600 w-screen h-screen overflow-hidden relative font-ibm-plex-sans"
   >
+    <div class="text-white ml-5 text-8xl">Perfect Blackjack Strategy</div>
+    <div class="text-white ml-12 text-3xl">by Benjamin Atlas</div>
+    <div
+      class="text-white text-2xl learn-more fixed bottom-5 left-5 cursor-pointer select-none"
+      @click="this.showLearnMore = !this.showLearnMore"
+    >
+      {{ this.showLearnMore ? 'Hide' : 'Learn more' }}
+      <div class="text-sm inline">[space]</div>
+    </div>
     <Table
       ref="tableRef"
       @control-state-changed="
@@ -16,12 +25,14 @@
       :enabled="controlsEnabled"
     />
     <Result ref="resultRef" />
+    <InfoPanel :showLearnMore="this.showLearnMore" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Controls from "./components/Controls.vue";
+import InfoPanel from "./components/InfoPanel.vue";
 import Result from "./components/Result.vue";
 import Scores from "./components/Scores.vue";
 import Table from "./components/Table.vue";
@@ -29,6 +40,7 @@ import Table from "./components/Table.vue";
 export default defineComponent({
   components: {
     Controls,
+    InfoPanel,
     Result,
     Scores,
     Table,
@@ -36,6 +48,7 @@ export default defineComponent({
   data() {
     return {
       controlsEnabled: false as boolean,
+      showLearnMore: false as boolean,
     };
   },
   methods: {
@@ -53,6 +66,9 @@ export default defineComponent({
       (this.$refs.tableRef as any).reset();
     },
   },
+  mounted() {
+    document.title = "Perfect Blackjack Strategy";
+  },
 });
 </script>
 
@@ -61,5 +77,9 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.learn-more {
+  z-index: 2;
 }
 </style>
