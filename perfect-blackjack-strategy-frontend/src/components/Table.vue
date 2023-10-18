@@ -36,6 +36,7 @@ export default defineComponent({
       correctMove: null as string | null
     };
   },
+  emits: ['control-state-changed', 'on-correct-move', 'on-incorrect-move'],
   mounted() {
     this.deal();
   },
@@ -122,6 +123,14 @@ export default defineComponent({
         const correctStrategySet: any = perfectStrategy.hard;
         const playerValueArray: string[] = correctStrategySet[this.playerHand[0].cardNumber + this.playerHand[1].cardNumber];
         this.correctMove = playerValueArray[this.dealerHand[0].cardNumber - 1];
+      }
+    },
+
+    validateUserChoice(move: string) {
+      if (move === this.correctMove) {
+        this.$emit('on-correct-move');
+      } else {
+        this.$emit('on-incorrect-move', this.correctMove);
       }
     }
   },
