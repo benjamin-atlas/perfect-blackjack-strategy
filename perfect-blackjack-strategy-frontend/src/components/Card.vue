@@ -1,8 +1,8 @@
 <template>
-  <div :class="`card-wrapper absolute top-[-1000%] ${dealt ? 'dealt' : ''}`">
+  <div :class="`card-wrapper absolute left-0 top-[-1000%] ${dealt ? 'dealt' : ''} ${cleared ? 'cleared' : ''}`">
     <div
       :class="`card-body bg-white w-[150px] h-[200px] rounded-xl relative text-center select-none ${
-        suit === 'heart' || suit === 'diamond' ? ' text-red-500' : ''
+        suit === 'heart' || suit === 'diamond' ? 'text-red-500' : ''
       }`"
     >
       <template v-if="faceUp">
@@ -62,6 +62,7 @@ export default defineComponent({
   data() {
     return {
       dealt: false,
+      cleared: false
     };
   },
   mounted() {
@@ -69,6 +70,11 @@ export default defineComponent({
       this.dealt = true;
     }, 100);
   },
+  methods: {
+    clear() {
+      this.cleared = true;
+    }
+  }
 });
 </script>
 
@@ -84,7 +90,7 @@ export default defineComponent({
 }
 
 .card-wrapper {
-  transition: top 400ms cubic-bezier(0, 0, 0, 0.99);
+  transition: top 400ms cubic-bezier(0, 0, 0, 0.99), left 300ms linear;
 }
 
 .face-down {
@@ -101,6 +107,10 @@ export default defineComponent({
 
 .dealt {
   top: 0% !important;
+}
+
+.cleared {
+  left: -2000% !important;
 }
 
 .card-1 {

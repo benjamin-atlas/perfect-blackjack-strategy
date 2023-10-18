@@ -1,8 +1,8 @@
 <template>
   <div class="bg-gradient-to-br from-pink-500 via-purple-500 to-purple-600 w-screen h-screen overflow-hidden relative font-ibm-plex-sans">
-    <Table />
+    <Table ref="tableRef"/>
     <Scores ref="scoreRef" />
-    <Controls @control-selected="this.$refs.scoreRef.increaseCurrentScore()" />
+    <Controls @control-selected="onControlSelected" />
   </div>
 </template>
 
@@ -17,6 +17,12 @@ export default defineComponent({
     Controls,
     Scores,
     Table
+  },
+  methods: {
+    onControlSelected() {
+      (this.$refs.scoreRef as any).increaseCurrentScore();
+      (this.$refs.tableRef as any).reset();
+    }
   }
 });
 </script>

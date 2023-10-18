@@ -5,17 +5,15 @@
         :cardNumber="cardInfo.cardNumber"
         :suit="cardInfo.suit"
         :faceUp="cardInfo.faceUp"
+        ref="dealerHandRef"
       />
     </div>
-    <div
-      class="relative"
-      v-for="(cardInfo, index) in playerHands[0]"
-      :key="index"
-    >
+    <div class="relative" v-for="(cardInfo, index) in playerHand" :key="index">
       <Card
         :cardNumber="cardInfo.cardNumber"
         :suit="cardInfo.suit"
         :faceUp="cardInfo.faceUp"
+        ref="playerHandRef"
       />
     </div>
   </div>
@@ -32,7 +30,7 @@ export default defineComponent({
   data() {
     return {
       dealerHand: [] as any[],
-      playerHands: [[]] as any[][],
+      playerHand: [] as any[],
     };
   },
   mounted() {
@@ -55,7 +53,7 @@ export default defineComponent({
           (card) =>
             newCard.cardNumber === card.cardNumber && newCard.suit === card.suit
         ) ||
-        this.playerHands[0].find(
+        this.playerHand.find(
           (card) =>
             newCard.cardNumber === card.cardNumber && newCard.suit === card.suit
         )
@@ -76,11 +74,30 @@ export default defineComponent({
       }, 350);
 
       setTimeout(() => {
-        this.playerHands[0].push(this.getRandomCard());
+        this.playerHand.push(this.getRandomCard());
       }, 1200);
       setTimeout(() => {
-        this.playerHands[0].push(this.getRandomCard());
+        this.playerHand.push(this.getRandomCard());
       }, 1350);
+    },
+
+    clearCards() {
+      (this.$refs.dealerHandRef as any).forEach((cardInstance: any) =>
+        cardInstance.clear()
+      );
+      (this.$refs.playerHandRef as any).forEach((cardInstance: any) =>
+        cardInstance.clear()
+      );
+
+      setTimeout(() => { 
+        this.dealerHand = [];
+        this.playerHand = [];
+        this.deal();
+        }, 400);
+    },
+
+    reset() {
+      this.clearCards();
     },
   },
 });
