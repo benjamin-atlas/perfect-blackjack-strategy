@@ -10,7 +10,7 @@
       />
     </div>
     <div class="relative" v-for="(cardInfo, index) in playerHand" :key="index">
-      <Card
+      <PlayingCard
         :cardNumber="cardInfo.cardNumber"
         :suit="cardInfo.suit"
         :faceUp="cardInfo.faceUp"
