@@ -4,11 +4,23 @@
   >
     <div class="text-white ml-5 text-8xl">Perfect Blackjack Strategy</div>
     <div class="text-white ml-12 text-3xl">by Benjamin Atlas</div>
+    <div class="text-white italic ml-12 mb-5 mt-10">
+      In blackjack, there is a theoretically-optimal decision for every hand
+      based on the cards in play.
+    </div>
+    <div class="text-white italic ml-12 mb-5">
+      This process of choosing the optimal decision for each hand is known as
+      <strong>perfect blackjack strategy</strong>.
+    </div>
+    <div class="text-white italic ml-12 mb-5">
+      Perfect strategy reduces the advantage the house has against the player,
+      though it should be noted that it does not eliminate it entirely.
+    </div>
     <div
       class="text-white text-2xl learn-more fixed bottom-5 left-5 cursor-pointer select-none"
-      @click="this.showLearnMore = !this.showLearnMore"
+      @click="this.showChart = !this.showLearnMore"
     >
-      {{ this.showLearnMore ? "Hide" : "Learn more" }}
+      {{ this.showLearnMore ? "Hide" : "Show" }} Chart
       <div class="text-sm inline">[space]</div>
     </div>
     <Table
