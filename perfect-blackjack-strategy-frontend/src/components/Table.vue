@@ -2,7 +2,7 @@
   <!-- <div v-if="correctMove">Correct move is to {{correctMove}}</div> -->
   <div class="grid gap-16 playing-table">
     <div class="relative" v-for="(cardInfo, index) in dealerHand" :key="index">
-      <Card
+      <PlayingCard
         :cardNumber="cardInfo.cardNumber"
         :suit="cardInfo.suit"
         :faceUp="cardInfo.faceUp"
@@ -22,12 +22,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Card from "./Card.vue";
+import PlayingCard from "./PlayingCard.vue";
 import perfectStrategy from "../assets/perfectStrategy"
 
 export default defineComponent({
   components: {
-    Card,
+    PlayingCard,
   },
   data() {
     return {
