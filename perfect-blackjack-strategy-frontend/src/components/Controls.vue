@@ -6,7 +6,7 @@
       :class="`control-option cursor-pointer select-none mr-0 ${
         hitSelected ? 'selected' : ''
       }`"
-      @click="this.$emit('control-selected', 'hit')"
+      @click="enabled ? $emit('control-selected', 'hit') : null"
     >
       <div class="inline-block">Hit</div>
       <div class="text-lg inline-block ml-2">1</div>
@@ -15,7 +15,7 @@
       :class="`control-option cursor-pointer select-none mr-0 ${
         standSelected ? 'selected' : ''
       }`"
-      @click="this.$emit('control-selected', 'stand')"
+      @click="enabled ? $emit('control-selected', 'stand') : null"
     >
       <div class="inline-block">Stand</div>
       <div class="text-lg inline-block ml-2">2</div>
@@ -24,7 +24,7 @@
       :class="`control-option cursor-pointer select-none mr-0 ${
         splitSelected ? 'selected' : ''
       }`"
-      @click="this.$emit('control-selected', 'split')"
+      @click="enabled ? $emit('control-selected', 'split') : null"
     >
       <div class="inline-block">Split</div>
       <div class="text-lg inline-block ml-2">3</div>
@@ -33,7 +33,7 @@
       :class="`control-option cursor-pointer select-none mr-0 ${
         doubleDownSelected ? 'selected' : ''
       }`"
-      @click="this.$emit('control-selected', 'double down')"
+      @click="enabled ? $emit('control-selected', 'double down') : null"
     >
       <div class="inline-block">Double Down</div>
       <div class="text-lg inline-block ml-2">4</div>

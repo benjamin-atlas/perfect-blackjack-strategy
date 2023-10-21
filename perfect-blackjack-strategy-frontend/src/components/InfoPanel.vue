@@ -1,7 +1,7 @@
 <template>
   <div
     :class="`info-panel text-white italic text-lg absolute left-[50%] translate-x-[-50%] w-[75%] p-10 translate-y-[-50%] ${
-      showLearnMore ? 'top-[50%]' : 'top-[150%]'
+      showChart ? 'top-[50%]' : 'top-[150%]'
     }`"
   >
     <div class="w-1/2 inline-block align-top">
@@ -73,7 +73,7 @@ import DecisionTable from "./DecisionTable.vue";
 
 export default defineComponent({
   props: {
-    showLearnMore: Boolean,
+    showChart: Boolean,
   },
   components: { DecisionTable },
   data() {

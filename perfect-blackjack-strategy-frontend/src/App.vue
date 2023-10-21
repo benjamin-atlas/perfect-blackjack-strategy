@@ -18,15 +18,15 @@
     </div>
     <div
       class="text-white text-2xl learn-more fixed bottom-5 left-5 cursor-pointer select-none"
-      @click="this.showChart = !this.showLearnMore"
+      @click="showChart = !showChart"
     >
-      {{ this.showLearnMore ? "Hide" : "Show" }} Chart
+      {{ showChart ? "Hide" : "Show" }} Chart
       <div class="text-sm inline">[space]</div>
     </div>
     <Table
       ref="tableRef"
       @control-state-changed="
-        (controlsEnabled) => (this.controlsEnabled = controlsEnabled)
+        (enabled) => (controlsEnabled = enabled)
       "
       @on-correct-move="onCorrectMove"
       @on-incorrect-move="onIncorrectMove"
@@ -37,7 +37,7 @@
       :enabled="controlsEnabled"
     />
     <Result ref="resultRef" />
-    <InfoPanel :showLearnMore="this.showLearnMore" />
+    <InfoPanel :showChart="showChart" />
   </div>
 </template>
 
@@ -60,7 +60,7 @@ export default defineComponent({
   data() {
     return {
       controlsEnabled: false as boolean,
-      showLearnMore: false as boolean,
+      showChart: false as boolean,
     };
   },
   methods: {
@@ -82,7 +82,7 @@ export default defineComponent({
     document.title = "Perfect Blackjack Strategy";
     document.addEventListener("keydown", (event) => {
       if (event.key === " ") {
-        this.showLearnMore = !this.showLearnMore;
+        this.showChart = !this.showChart;
       }
     });
   },

@@ -27,7 +27,7 @@
       <div class="text-white text-3xl mt-10">
         Correct choice:
         <i
-          ><strong>{{ this.correctMove }}</strong></i
+          ><strong>{{ correctMove }}</strong></i
         >
       </div>
     </div>
