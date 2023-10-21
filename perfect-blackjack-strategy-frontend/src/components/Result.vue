@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 left-[50%] translate-x-[-50%] pt-20 grid grid-cols-1 grid-rows-1">
+  <div class="fixed top-[60px] left-[50%] translate-x-[-50%] pt-20 grid grid-cols-1 grid-rows-1">
     <div
       id="success-message"
       :class="`width-full text-center result-message ${
