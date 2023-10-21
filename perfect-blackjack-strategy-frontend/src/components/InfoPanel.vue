@@ -4,7 +4,7 @@
       showChart ? 'top-[50%]' : 'top-[150%]'
     }`"
   >
-    <div class="w-1/2 inline-block align-top">
+    <div class="w-1/2 inline-block align-top pl-8 pr-8">
       <div class="mb-8">
         <DecisionTable
           :grid="aceGrid"
@@ -20,7 +20,7 @@
         />
       </div>
     </div>
-    <div class="w-1/2 inline-block">
+    <div class="w-1/2 inline-block pl-8 pr-8">
       <div class="mb-4">
         <DecisionTable
           :grid="hardGrid"
@@ -96,9 +96,5 @@ export default defineComponent({
   transition: top 200ms ease-in-out;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-}
-
-.decision-grid {
-  grid-template-columns: repeat(11, 70px);
 }
 </style>

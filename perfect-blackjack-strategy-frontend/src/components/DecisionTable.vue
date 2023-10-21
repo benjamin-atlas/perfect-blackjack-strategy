@@ -1,10 +1,13 @@
 <template>
-  
-  <div class="relative inline-block">
-    <div class="text-base absolute top-[-20px] left-0 font-bold">{{ description }}</div>
-    <div class="text-sm absolute top-[-20px] left-[50%] translate-x-[-50%]">Dealer Card</div>
+  <div class="relative inline-block w-full">
+    <div class="text-base absolute top-[-20px] left-0 drop-shadow-lg">
+      {{ description }}
+    </div>
+    <div class="text-sm absolute top-[-30px] left-[50%] translate-x-[-50%] bg-pink-500 pt-1 pb-1 pl-2 pr-2 rounded-full border font-semibold">
+      Dealer Card
+    </div>
     <div
-      class="absolute top-[50%] translate-y-[-50%] left-[-50px] rotate-[270deg] text-sm"
+      class="absolute top-[50%] translate-y-[-50%] left-[-65px] rotate-[270deg] text-sm bg-pink-500 pt-1 pb-1 pl-2 pr-2 rounded-full border font-semibold"
     >
       {{ leftLabel }}
     </div>
@@ -24,7 +27,9 @@
         v-for="(playerHand, rowIndex) in Object.keys(grid)"
         :key="rowIndex"
       >
-        <div class="text border-b border-r border-l bg-green-400">{{ playerHand }}</div>
+        <div class="text border-b border-r border-l bg-green-400">
+          {{ playerHand }}
+        </div>
         <div
           v-for="(decision, columnIndex) in grid[playerHand]"
           :key="columnIndex"
@@ -80,4 +85,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.decision-grid {
+  grid-template-columns: repeat(11, 1fr);
+}
+</style>
