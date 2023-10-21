@@ -4,22 +4,15 @@
       showLearnMore ? 'top-[50%]' : 'top-[150%]'
     }`"
   >
-    <div class="grid grid-cols-2 grid-rows-2">
-      <div>
+    <div class="w-1/2 inline-block align-top">
+      <div class="mb-8">
         <DecisionTable
           :grid="aceGrid"
           description="If you have an ace..."
           leftLabel="Other Card"
         />
       </div>
-      <div class="row-span-2">
-        <DecisionTable
-          :grid="hardGrid"
-          description="Otherwise - "
-          leftLabel="Card Sum"
-        />
-      </div>
-      <div>
+      <div class="mb-8">
         <DecisionTable
           :grid="splitGrid"
           description="If you have two of the same card..."
@@ -27,38 +20,47 @@
         />
       </div>
     </div>
-    <div>
-      <div class="mb-2">
-        <div
-          class="h-[29px] w-[70px] border inline-block text-center bg-purple-500"
-        >
-          H
-        </div>
-        - Hit
+    <div class="w-1/2 inline-block">
+      <div class="mb-4">
+        <DecisionTable
+          :grid="hardGrid"
+          description="Otherwise - "
+          leftLabel="Card Sum"
+        />
       </div>
-      <div class="mb-2">
-        <div
-          class="h-[29px] w-[70px] border inline-block text-center bg-pink-500"
-        >
-          ST
+      <div class="grid grid-cols-2 grid-rows-2">
+        <div class="mb-2">
+          <div
+            class="h-[29px] w-[70px] border inline-block text-center bg-purple-500"
+          >
+            H
+          </div>
+          - Hit
         </div>
-        - Stand
-      </div>
-      <div class="mb-2">
-        <div
-          class="h-[29px] w-[70px] border inline-block text-center bg-blue-500"
-        >
-          SP
+        <div class="mb-2">
+          <div
+            class="h-[29px] w-[70px] border inline-block text-center bg-pink-500"
+          >
+            ST
+          </div>
+          - Stand
         </div>
-        - Split
-      </div>
-      <div class="mb-2">
-        <div
-          class="h-[29px] w-[70px] border inline-block text-center bg-yellow-500"
-        >
-          DD
+        <div class="mb-2">
+          <div
+            class="h-[29px] w-[70px] border inline-block text-center bg-blue-500"
+          >
+            SP
+          </div>
+          - Split
         </div>
-        - Double Down
+        <div class="mb-2">
+          <div
+            class="h-[29px] w-[70px] border inline-block text-center bg-yellow-500"
+          >
+            DD
+          </div>
+          - Double Down
+        </div>
       </div>
     </div>
   </div>
