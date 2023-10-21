@@ -57,7 +57,7 @@
           <div
             class="h-[29px] w-[70px] border inline-block text-center bg-yellow-500"
           >
-            DD
+            D
           </div>
           - Double Down
         </div>
